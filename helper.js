@@ -3,18 +3,10 @@ import {getDatabase, ref, push, set, child, get} from "https://www.gstatic.com/f
 const appSettings = {
     databaseURL: "https://grievancebox-300ce-default-rtdb.asia-southeast1.firebasedatabase.app/"
 }
-let userName = null
+
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
 const users = ref(database,"Users")
-
-export function setUser(name) {
-    userName = name;
-}
-
-export function getUser() {
-    return userName;
-}
 
 export function addGrievance(user, grievance) {
     const userRef = child(users, user)
@@ -45,7 +37,34 @@ export async function getGrievances(user) {
     return l;
 }
 
+export function goto(page){
+    window.location.replace(page)
+}
 
+export function hasCookie(name) {
+    return document.cookie.split(";").some(cookie => cookie.trim().startsWith(name + "="));
+}
+
+export function getCookieValue(name) {
+  const cookies = document.cookie.split(';');
+  for (let cookie of cookies) {
+    const [key, value] = cookie.trim().split('=');
+    if (key === name) return decodeURIComponent(value);
+  }
+  return null; // cookie not found
+}
+
+export function createGrievanceObj(grievance,mood,audioBlob){
+    const now = new Date();
+    const item = {
+        grievance : grievance,
+        mood : mood,
+        audioBlob :audioBlob,
+        date : now.toISOString().slice(0, 10),
+        time : now.toLocaleTimeString()
+    }
+    return item
+}
 
 // addGrievance("u1",{c:1,b:2})
 // getGrievances("u1").then(l => {
