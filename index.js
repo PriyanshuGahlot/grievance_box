@@ -1,8 +1,9 @@
-import {goto, hasCookie} from "./helper.js"
+import {goto, hasCookie, getCookieValue} from "./helper.js"
 
-// if(hasCookie("userType")){
-//     goto("home.html")
-// }
+if(hasCookie("userType")){
+    if(getCookieValue("userType")=="gf") goto("home.html")
+    else if(getCookieValue("userType")=="bf") goto("bfHome.html")
+}
 
 const gfBtn = document.getElementById("gfBtn")
 const bfBtn = document.getElementById("bfBtn")

@@ -6,7 +6,7 @@ const userType = helper.getCookieValue("userType")
 
 if(userType=="bf"){
     inputBox.placeholder  = "whats ur gfs name"
-    saveNameBtn.textContent = "get rekt"
+    saveNameBtn.textContent = "View Mistakes"
 }else if(userType=="gf"){
     inputBox.placeholder  = "Whats ur pretty name girle"
 }
