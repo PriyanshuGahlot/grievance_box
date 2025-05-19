@@ -11,12 +11,12 @@ function setUserType(type){
     document.cookie = `userType=${type}`
 }
 
-gfBtn.onclick = () =>{
+gfBtn.onmouseup = () =>{
     setUserType("gf")
     goto("setupPage.html")
 }
 
-bfBtn.onclick = () =>{
+bfBtn.onmouseup = () =>{
     setUserType("bf")
     goto("setupPage.html")
 }

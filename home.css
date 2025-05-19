@@ -1,0 +1,141 @@
+body{
+    display: block;
+    padding: 0;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(#FFD3FB 0%,#FFECFD 50%,#FFD3FB 100%);
+    overflow: hidden;
+    font-family: "Montserrat", sans-serif;
+}
+
+.container{
+    display: flex;
+    width: 40vw;
+    background-color: #FFCBFB;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+/* #title{
+    font-family: "Rubik Moonrocks", sans-serif;
+    font-size: 38px;
+    position: absolute;
+    top: 0;
+} */
+
+select{
+    background-color: #FE9EF6;
+    width: 15vw;
+    text-align: center;
+    border: none;
+    height: 3vh;
+    margin-left: 25px;
+    border-radius: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.moodWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.moodSlider {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.moodSlider::before {
+    content: "😡";
+    font-size: 1.2rem;
+}
+
+.moodSlider::after {
+    content: "🥰";
+    font-size: 1.2rem;
+}
+
+#mood {
+    accent-color: #FE9EF6;
+    position: static; /* important: no absolute positioning */
+}
+
+
+.categoryDiv{
+    position: absolute;
+    top: 10%;
+}
+
+#grievanceInput{
+    position: absolute;
+    border: none;
+    width: 75%;
+    top: 25%;
+    height: auto;
+    border-radius: 1rem;
+    text-align: left;
+    padding: 1rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+#postBtn{
+    position: absolute;
+    bottom: 10%;
+    height: 2.5rem;
+    width: 30%;
+    border: none;
+    background-color: #FE9EF6;
+    border-radius: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+}
+
+.btn:hover{
+    transition: all 0.25s ease;
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.btn:active{
+    transform: scale(0.95);
+}
+
+
+.micWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.micGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+#micBtn {
+    background-color: #FE9EF6;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.7rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+}
+
+
+audio {
+    height: 2rem;
+}

@@ -5,7 +5,7 @@ const inputBox = document.getElementById("nameBox")
 const userType = helper.getCookieValue("userType")
 
 if(userType=="bf"){
-    inputBox.placeholder  = "whats ur bitchass name"
+    inputBox.placeholder  = "whats ur gfs name"
     saveNameBtn.textContent = "get rekt"
 }else if(userType=="gf"){
     inputBox.placeholder  = "Whats ur pretty name girle"

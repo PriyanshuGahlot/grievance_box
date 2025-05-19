@@ -6,6 +6,7 @@ const moodSlider = document.getElementById("mood");
 const userName = helper.getCookieValue("userName")
 const micBtn = document.getElementById("micBtn")
 const playback = document.getElementById("playback")
+const categoryInput = document.getElementById("categories")
 
 let canRec = false
 let isRec = false
@@ -39,6 +40,8 @@ function SetupStream(stream){
 
 function toggleMic(){
     if(!canRec) return
+    if(!isRec) micBtn.textContent = "Stop Recording"
+    else micBtn.textContent = "Start Recording"
     isRec = !isRec
     if(isRec){
         recorder.start()
@@ -51,28 +54,10 @@ micBtn.onclick= ()=>{
     toggleMic()
 }
 
-// postBtn.onclick = ()=>{
-//     const grievance = grievanceInput.value
-//     const moodVal = moodSlider.value
-
-//     const reader = new FileReader();
-//     reader.onloadend = () => {
-//         const base64 = reader.result; // This is a data URL (e.g., "data:audio/ogg;base64,...")
-//         console.log(base64);
-//     };
-//     // reader.readAsDataURL(blob);
-
-
-
-
-//     console.log(blob)
-//     helper.addGrievance(userName,helper.createGrievanceObj(grievance,moodVal,reader.readAsDataURL(blob)))
-//     blob = null
-// }
-
 postBtn.onclick = () => {
     const grievance = grievanceInput.value;
     const moodVal = moodSlider.value;
+    const category = categoryInput.value;
 
     if (grievance !== "" || blob != null) {
         if (blob) {
@@ -82,7 +67,7 @@ postBtn.onclick = () => {
                 console.log(base64);
                 helper.addGrievance(
                     userName,
-                    helper.createGrievanceObj(grievance, moodVal, base64)
+                    helper.createGrievanceObj(grievance, moodVal, base64, category)
                 );
                 console.log(base64.length)
                 blob = null;
@@ -91,8 +76,36 @@ postBtn.onclick = () => {
         } else {
             helper.addGrievance(
                 userName,
-                helper.createGrievanceObj(grievance, moodVal, null)
+                helper.createGrievanceObj(grievance, moodVal, null, category)
             );
         }
     }
+    grievanceInput.value = ""
+    const responses = [
+    "Venting session complete—consider it officially documented!",
+    "Complaint registered! We’ll send him a subtle hint... or a billboard.",
+    "Girl, you just dropped some truth! We love it!",
+    "That’s one way to keep him on his toes!",
+    "Another day, another boyfriend oopsie. Classic!",
+    "We feel the vibes. Boyfriends worldwide better step it up!",
+    "Complaint received! No guarantees on him actually listening, though.",
+    "That sounds like a whole situation... Stay strong!",
+    "Spill the tea, queen! We’re all ears.",
+    "Noted! Do we need to form a support group for this?",
+    "Girlfriend complaint logged! We’ll let the universe deal with him.",
+    "Your words have been heard—loud and clear!",
+    "It’s okay, he probably didn’t even realize... typical.",
+    "Consider it officially on the record! Stay iconic."
+    ];
+
+    alert(responses[Math.floor(Math.random() * responses.length)])
+
 };
+
+// moodSlider.oninput = ()=>{
+//     moodSlider.style.accentColor = helper.getColor(moodSlider.value)
+// }
+
+for(let i = 0;i<=100;i++){
+    console.log(helper.getColor(i))
+}

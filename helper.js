@@ -54,16 +54,28 @@ export function getCookieValue(name) {
   return null; // cookie not found
 }
 
-export function createGrievanceObj(grievance,mood,audioBlob){
+export function createGrievanceObj(grievance,mood,audioBlob,category){
     const now = new Date();
     const item = {
         grievance : grievance,
         mood : mood,
         audioBlob :audioBlob,
+        category : category,
         date : now.toISOString().slice(0, 10),
         time : now.toLocaleTimeString()
     }
     return item
+}
+
+export function getColor(val){
+    let red = 255
+    let green = 255
+    if(val<50){
+        green = 255 * (val/50)
+    }else if(val>50){
+        red = 255 * ((100-val)/50)
+    }
+    return `rgb(${red}, ${green}, 0)`;
 }
 
 // addGrievance("u1",{c:1,b:2})
